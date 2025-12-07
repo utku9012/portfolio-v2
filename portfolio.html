@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halil Utku Öztürk | Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- THEME CONFIGURATION --- */
+        :root {
+            --bg-body: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --primary: #2563eb;
+            /* Royal Blue */
+            --primary-dark: #1e40af;
+            --secondary: #e2e8f0;
+            --nav-height: 70px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --font-main: 'Manrope', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO --- */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            margin-top: 0;
+            padding-top: var(--nav-height);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- ABOUT --- */
+        #about {
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: #eff6ff;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            border: 1px solid #dbeafe;
+        }
+
+        .timeline-item {
+            border-left: 3px solid #e2e8f0;
+            padding-left: 25px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background: var(--bg-white);
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            left: -8.5px;
+            top: 5px;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- PORTFOLIO (UPDATED) --- */
+        #portfolio {
+            background-color: var(--bg-grey);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            position: relative;
+            border: 1px solid var(--secondary);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            /* Indicates interaction */
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary);
+        }
+
+        /* The Image Container */
+        .portfolio-img-wrapper {
+            position: relative;
+            height: 200px;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+            overflow: hidden;
+        }
+
+        /* The Icon/Image behind the overlay */
+        .portfolio-img-icon {
+            font-size: 4rem;
+            transition: 0.3s;
+        }
+
+        /* The Overlay */
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Light transparent background */
+            background: rgba(255, 255, 255, 0.15);
+            /* Slight blur to make button pop, but keep image visible */
+            backdrop-filter: blur(2px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        /* TRIGGER: Hovering the CARD triggers the overlay inside */
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        /* Optional: Scale the background icon slightly on hover for effect */
+        .portfolio-card:hover .portfolio-img-icon {
+            transform: scale(1.1);
+            color: #94a3b8;
+            /* Darken icon slightly */
+        }
+
+        /* The GitHub Button */
+        .github-link-btn {
+            background: var(--primary);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 10px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+            transform: translateY(10px);
+            transition: 0.3s ease;
+        }
+
+        /* Button floats up slightly when revealed */
+        .portfolio-card:hover .github-link-btn {
+            transform: translateY(0);
+        }
+
+        .github-link-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .portfolio-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            font-size: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        /* --- CONTACT --- */
+        #contact {
+            background-color: var(--bg-white);
+        }
+
+        .contact-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .contact-item span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item a {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 15px;
+            border: 1px solid var(--secondary);
+            border-radius: 6px;
+            font-family: inherit;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: white;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--secondary);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            header {
+                height: auto;
+                padding: 15px 0;
+                position: relative;
+            }
+
+            #hero {
+                padding-top: 20px;
+                height: auto;
+                min-height: 90vh;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">HALİL UTKU ÖZTÜRK</div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content">
+            <h1>Halil Utku Öztürk <br> <span> Entry Data Analyst</span></h1>
+            <p>Management Information Systems student specializing in Data Engineering, ETL/ELT Processes, BigQuery and
+                Python/C# development.</p>
+            <a href="#portfolio" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>Background & Education</h3>
+                    <p>I am currently studying <strong>Management Information Systems</strong> at <strong>Izmir Bakırçay
+                            University</strong>, maintaining a <strong>3.51 GPA</strong>.</p>
+                    <p>My focus lies in working with data to achieve insights through analysis and
+                        visualization. My journey began with a long-standing personal interest in the financial sector,
+                        where I spent years analyzing financial statements, balance sheets, and creating my own company
+                        reports as a hobby.
+
+                        To bridge my technical skills with this domain knowledge, I am aiming to build a career in the
+                        Fintech industry. Currently, I am actively expanding my skillset in Big Data technologies to
+                        further
+                        specialize in this field.</p>
+
+
+
+                    <div class="skills-container">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Data Modeling</span>
+                        <span class="skill-tag">PowerBI & Tableau</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="experience">
+                    <h3>Experience</h3>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Jun 2023 - Oct 2023 </span>
+                        <h4>IT Specialist</h4>
+                        <p style="color: #666; font-size: 0.9rem;">Assist Line Inc. </p>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">Provided IT support, system operations, repairs,
+                            and data retrieval procedures.</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">I have trained junior IT staff, prepared user
+                            manuals for ease of use, and
+                            delivered both remote and onsite technical support.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Jun 2022 - Oct 2022 </span>
+                        <h4>Intern</h4>
+                        <p style="color: #666; font-size: 0.9rem;">Assist Line Inc.</p>
+                        <p style="font-size: 0.9rem; margin-top: 5px;">Gained skills in networking, documentation, and
+                            troubleshooting.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-chart-area portfolio-img-icon"><img src="photos/0x0.webp"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/Stock_Analysis_TTR" target="_blank"
+                                class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Stock Analysis With TTR </h3>
+                        <p>A stock signal generation tool for BIST. Processes Yahoo Finance data to visualize SMA, RSI,
+                            MACD, and Bollinger Bands.</p>
+                        <span class="tech-stack">R • TTR • Yahoo Finance API</span>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-server portfolio-img-icon"><img src="photos/databases-set-three_78370-6669.avif"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/ms_sql_database_manager" target="_blank"
+                                class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Database Manager GUI </h3>
+                        <p>A GUI application for managing MS SQL Server databases built with Custom Tkinter.</p>
+                        <span class="tech-stack">Python • Tkinter • SQL</span>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-futbol portfolio-img-icon"><img src="photos/player-performance-analysis.gif"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/Player_Analyis_R" target="_blank" class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Player Analysis With R </h3>
+                        <p>Sports analysis project utilizing web scraping (Selenium) and machine learning to analyze
+                            player data to gain insights.</p>
+                        <span class="tech-stack">R • Selenium • Machine Learning</span>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-chart-area portfolio-img-icon"><img src="photos/unnamed.png"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/sql_converter" target="_blank" class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>SQL File Converter </h3>
+                        <p>Excel/CSV to SQL Server converter with GUI interface for data migration and import.</p>
+                        <span class="tech-stack">Python • SQL • Tkinter</span>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-chart-area portfolio-img-icon"><img src="photos/Car-All.jpg"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/sql_pandas" target="_blank" class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Car Rental Analysis </h3>
+                        <p>SQL queries and data analysis scripts for working with car rental data using SQL and pandas
+                            library.</p>
+                        <span class="tech-stack">SQL • Python • PowerBI</span>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img-wrapper">
+                        <i class="fas fa-chart-area portfolio-img-icon"><img src="photos/0x0 (1).webp"></i>
+                        <div class="portfolio-overlay">
+                            <a href="https://github.com/utku9012/daily_gold_fetcher" target="_blank" class="github-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Daily Gold Price Fetcher </h3>
+                        <p>A Python automation tool that fetches daily Gram Gold (TRY) prices using financial APIs and archives the data in Excel..</p>
+                        <span class="tech-stack">Python • Yahoo Finance API • Workflow </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container contact-wrapper">
+            <h2 class="section-title">Contact Me</h2>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a href="https://www.linkedin.com/in/halil-utku-ozturk-764390251/" target="_blank"
+                        rel="noopener noreferrer" aria-label="linkedin"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://github.com/utku9012" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-github" aria-label="github"></i></a>
+                </div>
+                <div class="contact-item">
+                    <a href="https://www.kaggle.com/halilutkuozturk" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-kaggle" aria-label="kaggle"></i></a>
+                </div>
+                <div class="contact-item">
+                    <a href="mailto:halilutku5658@gmail.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-solid  fa-envelope" aria-label="e-mail"></i></a>
+                </div>
+            </div>
+
+            <form id="contactForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Halil Utku Öztürk. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message simulated! (This is a static site demo)');
+        });
+    </script>
+</body>
+
+</html>
