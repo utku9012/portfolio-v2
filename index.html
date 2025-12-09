@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -129,6 +131,39 @@
             font-weight: 800;
             color: var(--primary);
             letter-spacing: -0.5px;
+        }
+
+        /* Logo Düzenlemesi */
+        .logo {
+            display: flex;
+            /* İkon ve yazıyı yan yana hizalar */
+            align-items: center;
+            /* Dikeyde ortalar */
+            gap: 12px;
+            /* İkon ile isim arasındaki boşluk */
+            text-decoration: none;
+            /* Alt çizgiyi kaldırır */
+        }
+
+        /* İkonun Rengi ve Boyutu */
+        .logo i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            /* Temandaki mavi renk */
+            background: rgba(37, 99, 235, 0.1);
+            /* Arkasına hafif mavi gölge */
+            padding: 8px;
+            border-radius: 8px;
+            /* Köşeleri yuvarlatır */
+            transition: 0.3s;
+        }
+
+        /* Logo üzerine gelince ikon efekti */
+        .logo:hover i {
+            background: var(--primary);
+            color: white;
+            transform: rotate(-10deg);
+            /* Hafif döndürme efekti */
         }
 
         nav ul {
@@ -534,7 +569,9 @@
 
     <header>
         <div class="nav-container">
-            <div class="logo">HALİL UTKU ÖZTÜRK</div>
+            <a href="#" class="logo">
+                <i class="fas fa-laptop-code"></i> <span>HALİL UTKU ÖZTÜRK</span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="#about">About</a></li>
