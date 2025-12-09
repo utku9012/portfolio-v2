@@ -179,6 +179,47 @@
             margin-right: auto;
         }
 
+        /* Butonları yan yana dizmek için kapsayıcı */
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            /* Butonlar arası boşluk */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* İkinci buton (Outline Stil) - İçi boş, kenarları renkli */
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Mobilde butonlar alt alta olsun istersen (Opsiyonel) */
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn,
+            .btn-outline {
+                width: 100%;
+                /* Mobilde tam genişlik */
+                max-width: 250px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+
         /* --- ABOUT --- */
         #about {
             background-color: var(--bg-white);
@@ -509,7 +550,11 @@
             <h1>Halil Utku Öztürk <br> <span> Entry Data Analyst</span></h1>
             <p>Management Information Systems student specializing in Data Engineering, ETL/ELT Processes, BigQuery and
                 Python/C# development.</p>
-            <a href="#portfolio" class="btn">View My Work</a>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn">View My Work</a>
+                <a href="CV.pdf" download class="btn btn-outline">
+                    <i class="fas fa-download"></i> Download CV</a>
+            </div>
         </div>
     </section>
 
@@ -595,7 +640,8 @@
                 <!-- 2 -->
                 <div class="portfolio-card">
                     <div class="portfolio-img-wrapper">
-                        <i class="fas fa-server portfolio-img-icon"><img src="photos/databases-set-three_78370-6669.avif"></i>
+                        <i class="fas fa-server portfolio-img-icon"><img
+                                src="photos/databases-set-three_78370-6669.avif"></i>
                         <div class="portfolio-overlay">
                             <a href="https://github.com/utku9012/ms_sql_database_manager" target="_blank"
                                 class="github-link-btn">
@@ -613,9 +659,11 @@
                 <!-- 3 -->
                 <div class="portfolio-card">
                     <div class="portfolio-img-wrapper">
-                        <i class="fas fa-futbol portfolio-img-icon"><img src="photos/player-performance-analysis.gif"></i>
+                        <i class="fas fa-futbol portfolio-img-icon"><img
+                                src="photos/player-performance-analysis.gif"></i>
                         <div class="portfolio-overlay">
-                            <a href="https://github.com/utku9012/Player_Analyis_R" target="_blank" class="github-link-btn">
+                            <a href="https://github.com/utku9012/Player_Analyis_R" target="_blank"
+                                class="github-link-btn">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
@@ -668,14 +716,16 @@
                     <div class="portfolio-img-wrapper">
                         <i class="fas fa-chart-area portfolio-img-icon"><img src="photos/0x0 (1).webp"></i>
                         <div class="portfolio-overlay">
-                            <a href="https://github.com/utku9012/daily_gold_fetcher" target="_blank" class="github-link-btn">
+                            <a href="https://github.com/utku9012/daily_gold_fetcher" target="_blank"
+                                class="github-link-btn">
                                 <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
                     <div class="portfolio-content">
                         <h3>Daily Gold Price Fetcher </h3>
-                        <p>A Python automation tool that fetches daily Gram Gold (TRY) prices using financial APIs and archives the data in Excel..</p>
+                        <p>A Python automation tool that fetches daily Gram Gold (TRY) prices using financial APIs and
+                            archives the data in Excel..</p>
                         <span class="tech-stack">Python • Yahoo Finance API • Workflow </span>
                     </div>
                 </div>
